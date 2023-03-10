@@ -2,7 +2,7 @@ import pandas as pd
 import simplekml
 
 # read data from Excel file
-df = pd.read_excel('GPS Addresses Full lat_long.xlsx')
+df = pd.read_excel('GPS Addresses Full_Lat_Long_complete.xlsx')
 
 # create KML object
 kml = simplekml.Kml()
