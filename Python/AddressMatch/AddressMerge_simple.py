@@ -1,12 +1,11 @@
 import pandas as pd
 
-# read in the FCWD and Parcels Excel files
-fcwd_df = pd.read_excel('GPS.xlsx')
-parcels_df = pd.read_excel('Parcels.xlsx')
+# Load the FCWD and Parcels Excel files into dataframes
+fcwd = pd.read_excel('GPS1_NO ZEROES_ EDITED.xlsx')
+parcels = pd.read_excel('Parcels_NO ZEROES.xlsx')
 
-# merge the two dataframes based on the 'address' column
-merged_df = pd.merge(fcwd_df, parcels_df, on='Address', how='outer')
+# Merge the two dataframes on the 'Address' column
+merged = pd.merge(fcwd, parcels, on='Address', how='outer', copy=True, indicator=True, suffixes=('_fcwd', '_parcels'))
 
-# write the merged dataframe to a new Excel file
-merged_df.to_excel('Merged.xlsx', index=False)
-
+# Save the merged dataframe to a new Excel file
+merged.to_excel('Merged_NO ZEROES_05.xlsx', index=False)
